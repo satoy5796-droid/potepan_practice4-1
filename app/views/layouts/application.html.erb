@@ -18,6 +18,20 @@
   </head>
 
   <body>
-    <%= yield %>
+    <!-- ヘッダー部分 -->
+    <header class="main-header">
+      <div class="header-container">
+        <%= link_to "スケジュール管理アプリ", root_path, class: "header-logo" %>
+      </div>
+    </header>
+
+    <!-- フラッシュメッセージ -->
+    <main class="container">
+      <% flash.each do |message_type, message| %>
+        <div class="flash-<%= message_type %>"><%= message %></div>
+      <% end %>
+
+      <%= yield %>
+    </main>
   </body>
 </html>
